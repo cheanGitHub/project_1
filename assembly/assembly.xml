@@ -1,0 +1,61 @@
+<assembly>
+    <id>assembly</id>
+
+    <formats>
+        <format>jar</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <!--<fileSet>
+            <directory>src/main/bin</directory>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/conf</directory>
+            <outputDirectory>conf</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/sql</directory>
+            <includes>
+                <include>*.sql</include>
+            </includes>
+            <outputDirectory>sql</outputDirectory>
+        </fileSet>-->
+        <fileSet>
+            <directory>target/classes/</directory>
+            <includes>
+                <include>com/cc/ui/*.class</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        <!--<fileSet>
+            <directory>jars/</directory>
+            <includes>
+                <include>jna-4.4.0.jar</include>
+                <include>jna-platform-4.4.0.jar</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>-->
+    </fileSets>
+
+    <!--<files>
+        <file>
+            <source>target/${project.artifactId}-${project.version}.jar</source>
+            <outputDirectory>.</outputDirectory>
+        </file>
+    </files>-->
+
+    <dependencySets>
+        <dependencySet>
+            <unpack>true</unpack>
+            <scope>system</scope>
+            <outputDirectory>/</outputDirectory>
+        </dependencySet>
+    </dependencySets>
+</assembly>

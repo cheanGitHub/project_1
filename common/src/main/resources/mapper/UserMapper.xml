@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 动态代理dao 包装规则：
+      1.namespace必需是接口的全路径名
+     2.接口的方法名必需与映射文件的sql-id一致
+     3.接口的输入参数必需与映射文件的parameterType类型一致
+     4.接口的返回类型必须与映射文件的resultType类型一致
+ -->
+<mapper namespace="com.cc.user.dao.UserMapper">
+    <select id="getUserById" parameterType="long" resultType="com.cc.user.domain.User">
+		SELECT
+		  id,
+		  user_name as userName
+		FROM t_user
+		WHERE id = #{id}
+	</select>
+
+    <!-- resultType:如果返回结果为集合时，只需设定为集合中每一个元素的数据类型就可  -->
+    <!--<select id="getUserByUserName" parameterType="string" resultType="com.cc.user.domain.User">
+        SELECT
+        `id`,
+        `username`,
+        `birthday`,
+        `sex`,
+        `address`
+        FROM
+        `user`
+        &lt;!&ndash; WHERE username LIKE #{name} &ndash;&gt;
+        WHERE username LIKE '%${value}%'
+    </select>-->
+
+    <!-- useGeneratedKeys：启动自增，需要指定keyProperty，用于接收主键返回 -->
+    <insert id="insertUser" parameterType="com.cc.user.domain.User" useGeneratedKeys="true" keyProperty="id">
+        <!-- selectKey:配置主键返回
+             keyProperty:入参的接收的主键，写的是属性名
+             resultType:指定主键的数据类型
+             order:执行策略，AFTER在插入语句之后
+         -->
+        <!-- <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey> -->
+        INSERT INTO t_user
+        (id, user_name)
+        VALUES (null, #{userName});
+    </insert>
+</mapper>

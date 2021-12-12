@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 优先取resource的内容，其次取标签内部值 -->
+    <!--<properties resource="jdbc.properties">
+        <property name="jdbc.username" value="root"/>
+        <property name="jdbc.password" value="123456"/>
+    </properties>-->
+
+    <!-- 别名定义 不区分大小写 -->
+<!--    <typeAliases>
+        &lt;!&ndash; 单个别名定义 &ndash;&gt;
+        <typeAlias type="com.itheima.mybatis.pojo.TestAnnoMain" alias="user" />
+        <typeAlias type="java.lang.Integer" alias="integ" />
+        &lt;!&ndash; 扫描包 进行批量定义 别名取类名 &ndash;&gt;
+        <package name="com.itheima.mybatis.pojo" />
+    </typeAliases>-->
+
+    <!--<environments default="development">
+        <environment id="development">
+            &lt;!&ndash; 事务类型 &ndash;&gt;
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/test?characterEncoding=utf-8"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>-->
+
+    <!-- 映射文件加载 -->
+    <mappers>
+        <!-- 直接单个加载 -->
+        <!--<mapper resource="mapper/UserMapper.xml"/>-->
+        <!-- class扫描加载  要求映射文件与借口同名同包 -->
+        <!--<mapper class="com.itheima.mybatis.mapper.UserMapper"/>-->
+        <!-- 包扫描加载   推荐   要求同上 -->
+        <!--<package name="com.itheima.mybatis.mapper"/>-->
+    </mappers>
+
+</configuration>

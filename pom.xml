@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cc</groupId>
+    <artifactId>project_1</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>anno_processor</module>
+        <module>common</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.carrotsearch.randomizedtesting</groupId>
+            <artifactId>junit4-ant</artifactId>
+            <version>2.7.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!--<finalName>xxx</finalName> xxx.war -->
+        <!--<resources>
+            <resource>
+                <directory></directory>
+                <targetPath></targetPath>
+            </resource>
+        </resources>-->
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp/WEB-INF</directory>
+                            <filtering>true</filtering>
+                            <targetPath>WEB-INF</targetPath>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-shade-plugin</artifactId>-->
+            <!--<version>2.4.3</version>-->
+            <!--<configuration>-->
+            <!--&lt;!&ndash; put your configurations here &ndash;&gt;-->
+            <!--<minimizeJar>true</minimizeJar>-->
+            <!--<transformers>-->
+            <!--<transformer-->
+            <!--implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+            <!--<mainClass>com.cc.ui.Cross</mainClass>-->
+            <!--</transformer>-->
+            <!--</transformers>-->
+            <!--<filters>-->
+            <!--<filter>-->
+            <!--&lt;!&ndash;<artifact>com.hw:project_1</artifact>&ndash;&gt;-->
+            <!--&lt;!&ndash;<includes>&ndash;&gt;-->
+            <!--&lt;!&ndash;<include>com/cc/**</include>&ndash;&gt;-->
+            <!--&lt;!&ndash;</includes>&ndash;&gt;-->
+            <!--&lt;!&ndash;<excludes>&ndash;&gt;-->
+            <!--&lt;!&ndash;<exclude>org/junit/experimental/**</exclude>&ndash;&gt;-->
+            <!--&lt;!&ndash;<exclude>org/junit/runners/**</exclude>&ndash;&gt;-->
+            <!--&lt;!&ndash;</excludes>&ndash;&gt;-->
+            <!--</filter>-->
+            <!--</filters>-->
+            <!--<relocations>-->
+            <!--<relocation>-->
+            <!--<pattern>com.cc.ui</pattern>-->
+            <!--<shadedPattern>com.cc.ui.shade</shadedPattern>-->
+            <!--<excludes>-->
+            <!--&lt;!&ndash;<exclude>org.codehaus.plexus.util.xml.Xpp3Dom</exclude>&ndash;&gt;-->
+            <!--&lt;!&ndash;<exclude>org.codehaus.plexus.util.xml.pull.*</exclude>&ndash;&gt;-->
+            <!--</excludes>-->
+            <!--</relocation>-->
+            <!--</relocations>-->
+            <!--<outputFile>${project.build.outputDirectory}/../cross.jar</outputFile>-->
+            <!--</configuration>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>package</phase>-->
+            <!--<goals>-->
+            <!--<goal>shade</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+</project>
